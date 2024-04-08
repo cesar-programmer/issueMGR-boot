@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Issue Manager{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>Issue Manager</h1>
+    <div class="d-flex justify-content-end mb-4">
+        <a href="{% url 'new' %}" class="btn btn-primary">Create New Issue</a>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h2 class="mb-4">In Progress</h2>
+        <div id="inprogress-issues" class="issue-column">
+            {% for issue in todo_issues  %}
+            <div class="card mb-3 shadow-sm">
+                <div class="card-header py-1">
+                    <h6 class="my-0 font-weight-normal">{{ issue.summary }}</h6>
+                </div>
+                <div class="card-body py-2">
+                    <p class="card-text mb-1"><small>{{ issue.description|truncatewords:20 }}</small></p>
+                    <p class="card-text mb-1"><small>Status: {{ issue.status }}</small></p>
+                    <p class="card-text mb-1"><small>Priority: {{ issue.priority }}</small></p>
+                    <p class="card-text mb-2"><small class="text-muted">Reported by: {{ issue.reporter.username }}</small></p>
+                    <div class="d-flex justify-content-end">
+                        <a style="margin-right:10px;" href="{% url 'edit' issue.id %}" class="btn btn-sm btn-secondary mr-1">Edit</a>
+                        <a href="{% url 'delete' issue.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+        <div class="col-md-4">
+          <h2 class="mb-4">In Progress</h2>
+          <div id="inprogress-issues" class="issue-column">
+              {% for issue in inprogress_issues %}
+              <div class="card mb-3 shadow-sm">
+                  <div class="card-header py-1">
+                      <h6 class="my-0 font-weight-normal">{{ issue.summary }}</h6>
+                  </div>
+                  <div class="card-body py-2">
+                      <p class="card-text mb-1"><small>{{ issue.description|truncatewords:20 }}</small></p>
+                      <p class="card-text mb-1"><small>Status: {{ issue.status }}</small></p>
+                      <p class="card-text mb-1"><small>Priority: {{ issue.priority }}</small></p>
+                      <p class="card-text mb-2"><small class="text-muted">Reported by: {{ issue.reporter.username }}</small></p>
+                      <div class="d-flex justify-content-end">
+                          <a style="margin-right:10px;" href="{% url 'edit' issue.id %}" class="btn btn-sm btn-secondary mr-1">Edit</a>
+                          <a href="{% url 'delete' issue.id %}" class="btn btn-sm btn-danger">Delete</a>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  
+      <div class="col-md-4">
+        <h2 class="mb-4">In Progress</h2>
+        <div id="inprogress-issues" class="issue-column">
+            {% for issue in done_issues %}
+            <div class="card mb-3 shadow-sm">
+                <div class="card-header py-1">
+                    <h6 class="my-0 font-weight-normal">{{ issue.summary }}</h6>
+                </div>
+                <div class="card-body py-2">
+                    <p class="card-text mb-1"><small>{{ issue.description|truncatewords:20 }}</small></p>
+                    <p class="card-text mb-1"><small>Status: {{ issue.status }}</small></p>
+                    <p class="card-text mb-1"><small>Priority: {{ issue.priority }}</small></p>
+                    <p class="card-text mb-2"><small class="text-muted">Reported by: {{ issue.reporter.username }}</small></p>
+                    <div class="d-flex justify-content-end">
+                        <a style="margin-right:10px;" href="{% url 'edit' issue.id %}" class="btn btn-sm btn-secondary mr-1">Edit</a>
+                        <a href="{% url 'delete' issue.id %}" class="btn btn-sm btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

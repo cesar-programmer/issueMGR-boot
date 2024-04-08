@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}New Issue - Issue Tracker{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>New Issue</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary" value="Save">Save</button>
+        <a href="{% url 'list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Issue - Issue Tracker{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>Delete Issue</h1>
+    <p>Are you sure you want to delete the issue "<strong>{{ issue.title }}</strong>"?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
+        <a href="{% url 'list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Issue Tracker - Home{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Our Issue Tracker</h1>
+        <p class="lead">Streamline your project management and bug tracking with ease and efficiency.</p>
+        <hr class="my-4">
+        <p>Our Issue Tracker is designed to help software development teams manage bugs and tasks seamlessly, enhancing productivity and fostering a collaborative environment.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Efficient Issue Tracking</h5>
+                    <p class="card-text">Log and categorize issues with detailed information to kick-start the resolution process without any hassle.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Collaboration Tools</h5>
+                    <p class="card-text">Facilitate teamwork with task assignments, status updates, and priority settings in a user-friendly interface.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Customizable Workflows</h5>
+                    <p class="card-text">Adapt the issue resolution process to meet your team's unique needs, improving efficiency and outcome.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col text-center">
+            <p class="lead">Ready to elevate your project management experience?</p>
+            <a href="{% url 'signup' %}" class="btn btn-success">Sign Up Now</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
